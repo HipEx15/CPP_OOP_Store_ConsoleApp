@@ -1,2 +1,8 @@
-﻿  Source.cpp
+﻿  APU.cpp
+  Builder.cpp
+  CPU.cpp
+  GPU.cpp
+  Products.cpp
+  Source.cpp
+  Generating Code...
   ProiectAMD.vcxproj -> C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Debug\ProiectAMD.exe
