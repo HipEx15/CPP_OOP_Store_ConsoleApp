@@ -22,5 +22,5 @@ Products::Products(float weight, float height, unsigned short int tdp, unsigned 
 
 void Products::PrintP(void)
 {
-	std::cout << "\t"<< this->weight << ", " << this->height << ", " << this->tdp << ", " << this->nms << ", " << this->memory << ", " << this->frequency << ", ";
+	std::cout << "\n\tWeight: "<< this->weight << "\n\tHeight: " << this->height << "\n\tTDP: " << this->tdp << "\n\tNMS: " << this->nms << "\n\tMemory:" << this->memory << "\n\tFrequency: " << this->frequency;
 }

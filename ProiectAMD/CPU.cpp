@@ -16,5 +16,5 @@ CPU::CPU(unsigned short int cores, unsigned short int threads, std::string socke
 
 void CPU::PrintC(void)
 {
-	std::cout << this->cores << ", " << this->threads << ", " << this->socket;
+	std::cout <<"\n\tCores: " << this->cores << "\n\tThreads: " << this->threads << "\n\tSocket: " << this->socket;
 }

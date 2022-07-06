@@ -3,7 +3,7 @@
 #include <string>
 #include "Products.h"
 
-enum version {OpenGL, DirectX};
+enum version {OpenGL = 1, DirectX };
 
 class GPU
 {
@@ -14,4 +14,6 @@ protected:
 public:
 	GPU(void);
 	GPU(std::string maximumResolution, version differentVersions);
+	void PrintG(void);
+	std::string enumtoString(void);
 };

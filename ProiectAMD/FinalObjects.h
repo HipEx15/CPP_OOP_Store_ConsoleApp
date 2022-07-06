@@ -9,6 +9,11 @@ class FinalProduct
 {
 public:
 	Products* p;
+	void PrintProd(void)
+	{
+		std::cout << "\n    PRODUCT: ";
+		p->PrintP();
+	}
 };
 
 class FinalCPU
@@ -18,8 +23,7 @@ public:
 	CPU* c;
 	void PrintC(void)
 	{
-		std::cout << "\nCPU: ";
-		//std::cout << "\nCPU: " << c->cores << " " << c->threads << " " << c->socket << "\n";
+		std::cout << "\n    CPU: ";
 		p->PrintP();
 		c->PrintC();
 	}
@@ -30,6 +34,12 @@ class FinalGPU
 public:
 	Products* p;
 	GPU* g;
+	void PrintG(void)
+	{
+		std::cout << "\n    GPU: ";
+		p->PrintP();
+		g->PrintG();
+	}
 };
 
 class FinalAPU
@@ -38,4 +48,11 @@ public:
 	Products* p;
 	CPU* c;
 	GPU* g;
+	void PrintA(void)
+	{
+		std::cout << "\n    APU: ";
+		p->PrintP();
+		c->PrintC();
+		g->PrintG();
+	}
 };

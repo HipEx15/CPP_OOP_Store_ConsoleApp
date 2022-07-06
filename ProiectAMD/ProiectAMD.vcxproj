@@ -143,6 +143,7 @@
     <ClCompile Include="Builder.cpp" />
     <ClCompile Include="CPU.cpp" />
     <ClCompile Include="Director.cpp" />
+    <ClCompile Include="FinalObjects.cpp" />
     <ClCompile Include="GPU.cpp" />
     <ClCompile Include="Products.cpp" />
     <ClCompile Include="Source.cpp" />

@@ -5,6 +5,11 @@ Director::Director(Builder* builder)
 	this->builder = builder;
 }
 
+void Director::setBuilder(Builder* builder)
+{
+	this->builder = builder;
+}
+
 FinalProduct* Director::getFP(float weight, float height, unsigned short int tdp, unsigned short int nms, unsigned short int memory, float frequency)
 {
 	FinalProduct* FP = new FinalProduct();
