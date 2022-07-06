@@ -1,11 +1,12 @@
 #pragma once
 
+#include <iostream>
 #include <string>
 #include "Products.h"
 
 class CPU
 {
-protected:
+public: //PROTECTED TO DO
 	unsigned short int cores;
 	unsigned short int threads;
 	std::string socket;
@@ -13,4 +14,5 @@ protected:
 public:
 	CPU(void);
 	CPU(unsigned short int cores, unsigned short int threads, std::string socket);
+	void PrintC(void);
 };

@@ -1,8 +1,13 @@
 ﻿  APU.cpp
   Builder.cpp
   CPU.cpp
+  Director.cpp
   GPU.cpp
   Products.cpp
   Source.cpp
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(16,56): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(8,16): warning C4101: 'P': unreferenced local variable
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(11,12): warning C4101: 'A': unreferenced local variable
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(10,12): warning C4101: 'G': unreferenced local variable
   Generating Code...
   ProiectAMD.vcxproj -> C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Debug\ProiectAMD.exe

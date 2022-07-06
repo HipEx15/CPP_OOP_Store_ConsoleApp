@@ -8,9 +8,9 @@
 class Builder
 {
 public:
-	virtual Products* product(void) = 0;
-	virtual CPU* cpu(void) = 0;
-	virtual GPU* gpu(void) = 0;
+	virtual Products* product(float weight, float height, unsigned short int tdp, unsigned short int nms, unsigned short int memory, float frequency) { return NULL; };
+	virtual CPU* cpu(unsigned short int cores, unsigned short int threads, std::string socket) { return NULL; };
+	virtual GPU* gpu(std::string maximumResolution, version differentVersions) { return NULL; };
 };
 
 class BuildProduct : public Builder

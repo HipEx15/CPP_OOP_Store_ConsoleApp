@@ -13,4 +13,3 @@ CPU::CPU(unsigned short int cores, unsigned short int threads, std::string socke
 	this->threads = threads;
 	this->socket = socket;
 }
-

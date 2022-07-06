@@ -142,6 +142,7 @@
     <ClCompile Include="APU.cpp" />
     <ClCompile Include="Builder.cpp" />
     <ClCompile Include="CPU.cpp" />
+    <ClCompile Include="Director.cpp" />
     <ClCompile Include="GPU.cpp" />
     <ClCompile Include="Products.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -150,6 +151,8 @@
     <ClInclude Include="APU.h" />
     <ClInclude Include="Builder.h" />
     <ClInclude Include="CPU.h" />
+    <ClInclude Include="Director.h" />
+    <ClInclude Include="FinalObjects.h" />
     <ClInclude Include="GPU.h" />
     <ClInclude Include="Products.h" />
   </ItemGroup>

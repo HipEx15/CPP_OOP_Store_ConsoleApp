@@ -16,6 +16,10 @@ class FinalCPU
 public:
 	Products* p;
 	CPU* c;
+	void PrintC(void)
+	{
+		std::cout << "\nCPU: " << c->cores << " " << c->threads << " " << c->socket << "\n";
+	}
 };
 
 class FinalGPU
