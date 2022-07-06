@@ -5,23 +5,29 @@
 #include "GPU.h"
 #include "APU.h"
 
-class FinalProduct
+class Inventory
+{
+public:
+	virtual void Print(void) {};
+};
+
+class FinalProduct : public Inventory
 {
 public:
 	Products* p;
-	void PrintProd(void)
+	void Print(void)
 	{
 		std::cout << "\n    PRODUCT: ";
 		p->PrintP();
 	}
 };
 
-class FinalCPU
+class FinalCPU : public Inventory
 {
 public:
 	Products* p;
 	CPU* c;
-	void PrintC(void)
+	void Print(void)
 	{
 		std::cout << "\n    CPU: ";
 		p->PrintP();
@@ -29,12 +35,12 @@ public:
 	}
 };
 
-class FinalGPU
+class FinalGPU : public Inventory
 {
 public:
 	Products* p;
 	GPU* g;
-	void PrintG(void)
+	void Print(void)
 	{
 		std::cout << "\n    GPU: ";
 		p->PrintP();
@@ -42,13 +48,13 @@ public:
 	}
 };
 
-class FinalAPU
+class FinalAPU : public Inventory
 {
 public:
 	Products* p;
 	CPU* c;
 	GPU* g;
-	void PrintA(void)
+	void Print(void)
 	{
 		std::cout << "\n    APU: ";
 		p->PrintP();
