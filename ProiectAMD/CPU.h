@@ -6,7 +6,7 @@
 
 class CPU
 {
-public: //PROTECTED TO DO
+protected:
 	unsigned short int cores;
 	unsigned short int threads;
 	std::string socket;

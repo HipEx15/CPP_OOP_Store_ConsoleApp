@@ -18,7 +18,10 @@ public:
 	CPU* c;
 	void PrintC(void)
 	{
-		std::cout << "\nCPU: " << c->cores << " " << c->threads << " " << c->socket << "\n";
+		std::cout << "\nCPU: ";
+		//std::cout << "\nCPU: " << c->cores << " " << c->threads << " " << c->socket << "\n";
+		p->PrintP();
+		c->PrintC();
 	}
 };
 
