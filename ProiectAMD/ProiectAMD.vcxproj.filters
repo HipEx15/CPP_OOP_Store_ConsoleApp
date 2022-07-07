@@ -33,13 +33,10 @@
     <ClCompile Include="Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Administrator.cpp">
+    <ClCompile Include="Director.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FinalObjects.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="User.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,13 +56,10 @@
     <ClInclude Include="Builder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Administrator.h">
+    <ClInclude Include="Director.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FinalObjects.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

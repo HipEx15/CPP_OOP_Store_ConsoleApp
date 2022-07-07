@@ -1,7 +1,5 @@
-﻿  Administrator.cpp
-  Source.cpp
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(20,58): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(24,74): warning C4305: 'argument': truncation from 'double' to 'float'
+﻿  Source.cpp
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(20,56): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(24,72): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(9,16): warning C4101: 'P': unreferenced local variable
-  Generating Code...
   ProiectAMD.vcxproj -> C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Debug\ProiectAMD.exe
