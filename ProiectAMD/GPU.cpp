@@ -19,9 +19,19 @@ void GPU::PrintG(void)
 
 std::string GPU::enumtoString(void)
 {
-	if (this->differentVersions == 1)
+	/*if (this->differentVersions == 1)
 		return "OpenGL";
 	else if (this->differentVersions == 2)
+		return "DirectX";*/
+
+	switch (this->differentVersions)
+	{
+	case 1:
+		return "OpenGL";
+	case 2:
 		return "DirectX";
+	default:
+		break;
+	}
 }
 

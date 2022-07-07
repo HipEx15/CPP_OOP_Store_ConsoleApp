@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include "Director.h"
+#include "Administrator.h"
 
-using namespace std;
+int User::ID = 0;
 
 int main(void)
 {
@@ -14,29 +14,33 @@ int main(void)
 	BuildCPU BC;
 	BuildGPU BG;
 	BuildAPU BA;
-	Director Dir;
+	Admin Admin;
 
-	Dir.setBuilder(&BC);
-	C = Dir.getFC(54,23,44,4,8,3.6,6,12,(std::string)"AM4");
+	Admin.setBuilder(&BC);
+	C = Admin.getFC(54,23,44,4,8,3.6,6,12,(std::string)"AM4");
 	//C->Print();
 
-	Dir.setBuilder(&BG);
-	G = Dir.getFG(22, 14, 65, 2, 7, 3.6, (std::string)"1920x1080", DirectX);
+	Admin.setBuilder(&BG);
+	G = Admin.getFG(22, 14, 65, 2, 7, 3.6, (std::string)"1920x1080", DirectX);
 	//G->Print();
 
-	Dir.setBuilder(&BA);
-	A = Dir.getFA(12, 13, 14, 15, 16, 17.5, 4, 8, (std::string)"AM4+", (std::string)"1280x760", OpenGL);
+	Admin.setBuilder(&BA);
+	A = Admin.getFA(12, 13, 14, 15, 16, 17.5, 4, 8, (std::string)"AM4+", (std::string)"1280x760", OpenGL);
 	//A->Print();
 
 
 	//VECTORUL CU TOATE OBIECTELE
-	std::vector<Inventory*> Inventory;
-	Inventory.push_back(C);
+	//TO DO -> FILTRELE pe VECTOR 
+	
+	/*Inventory.push_back(C);
 	Inventory.push_back(G);
-	Inventory.push_back(A);
+	Inventory.push_back(A);*/
 
-	for (auto i : Inventory)
-		i->Print();
+	Admin.addProduct(C);
+	Admin.addProduct(G);
+	Admin.addProduct(A);
+
+	Admin.printAllProducts();
 
 	return 0;
 }
