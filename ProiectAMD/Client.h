@@ -7,4 +7,5 @@ class Client : public User
 public:
 	Client(void);
 	Client(std::string username, std::string password, roleType role);
+	void setRole(roleType role);
 };

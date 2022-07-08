@@ -5,7 +5,7 @@ User::User(void)
 	this->numberID = 0;
 	this->username = "?";
 	this->password = "?";
-	this->role = Client;
+	this->role = client;
 }
 
 User::User(std::string username, std::string password, roleType role)

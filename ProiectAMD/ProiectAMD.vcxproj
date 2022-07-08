@@ -140,23 +140,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Administrator.cpp" />
     <ClCompile Include="APU.cpp" />
     <ClCompile Include="Builder.cpp" />
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="CPU.cpp" />
     <ClCompile Include="Director.cpp" />
     <ClCompile Include="FinalObjects.cpp" />
     <ClCompile Include="GPU.cpp" />
     <ClCompile Include="Products.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Administrator.h" />
     <ClInclude Include="APU.h" />
     <ClInclude Include="Builder.h" />
+    <ClInclude Include="Client.h" />
     <ClInclude Include="CPU.h" />
     <ClInclude Include="Director.h" />
     <ClInclude Include="FinalObjects.h" />
     <ClInclude Include="GPU.h" />
     <ClInclude Include="Products.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

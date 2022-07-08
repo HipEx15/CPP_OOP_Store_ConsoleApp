@@ -1,11 +1,16 @@
 #include <iostream>
 #include <vector>
 #include "Director.h"
+#include "User.h"
+#include "Administrator.h"
+#include "Client.h"
 
-using namespace std;
+int User::numberID = 0;
 
 int main(void)
 {
+	Administrator Admin((std::string)"Dan", (std::string)"123456", administrator);
+
 	FinalProduct* P;
 	FinalCPU* C;
 	FinalGPU* G;
@@ -30,13 +35,23 @@ int main(void)
 
 
 	//VECTORUL CU TOATE OBIECTELE
-	std::vector<Inventory*> Inventory;
+	/*std::vector<Inventory*> Inventory;
 	Inventory.push_back(C);
 	Inventory.push_back(G);
 	Inventory.push_back(A);
 
 	for (auto i : Inventory)
-		i->Print();
+		i->Print();*/
+
+	Admin.addItem(C);
+	Admin.addItem(G);
+	Admin.addItem(A);
+
+	//Admin.printInventory();
+
+	Admin.removeItem(A);
+	Admin.printInventory();
+
 
 	return 0;
 }

@@ -2,7 +2,7 @@
 
 #include <string>
 
-enum roleType { Client = 1, Administrator};
+enum roleType { client = 1, administrator};
 
 class User
 {
