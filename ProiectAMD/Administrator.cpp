@@ -26,10 +26,17 @@ void Administrator::removeItem(Inventory* i)
 	this->inventory.erase(this->inventory.begin() + index);
 }
 
+
+std::vector<Inventory*> Administrator::getInventory(void)
+{
+	return this->inventory;
+}
+
+/*
 void Administrator::changeroleType(Client C)
 {
 	C.setRole(administrator);
-}
+}*/
 
 void Administrator::printInventory(void)
 {

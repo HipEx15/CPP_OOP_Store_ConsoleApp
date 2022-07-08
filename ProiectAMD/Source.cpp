@@ -10,6 +10,7 @@ int User::numberID = 0;
 int main(void)
 {
 	Administrator Admin((std::string)"Dan", (std::string)"123456", administrator);
+	Client Client((std::string)"Alex", (std::string)"whatever", client);
 
 	FinalProduct* P;
 	FinalCPU* C;
@@ -46,11 +47,16 @@ int main(void)
 	Admin.addItem(C);
 	Admin.addItem(G);
 	Admin.addItem(A);
+	std::vector<Inventory*> inventory = Admin.getInventory();
+
+
+	Client.addItem(C, inventory);
+	Client.printBasket();
 
 	//Admin.printInventory();
 
-	Admin.removeItem(A);
-	Admin.printInventory();
+	//Admin.removeItem(A);
+	//Admin.printInventory();
 
 
 	return 0;

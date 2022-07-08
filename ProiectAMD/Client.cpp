@@ -10,3 +10,43 @@ void Client::setRole(roleType role)
 {
 	this->role = role;
 }
+
+void Client::addItem(Inventory* i, std::vector<Inventory*> inventory)
+{
+	bool ok = false;
+	for (auto j : inventory)
+	{
+		if (i == j)
+		{
+			ok = true;
+			break;
+		}
+	}
+	
+	if (ok)
+		this->basket.push_back(i);
+	else
+		std::cout << "\Nu avem pe stoc.";
+	
+}
+
+void Client::removeItem(Inventory* i)
+{
+	unsigned short int index = 0;
+	for (auto j : this->basket)
+	{
+		if (j == i)
+			break;
+		else
+			index++;
+	}
+
+	std::cout << "\nINDEX: " << index;
+	this->basket.erase(this->basket.begin() + index);
+}
+
+void Client::printBasket(void)
+{
+	for (auto i : this->basket)
+		i->Print();
+}
