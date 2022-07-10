@@ -17,4 +17,9 @@ public:
 	void addItem(Inventory* i, std::vector<Inventory*> inventory);
 	void removeItem(Inventory* i);
 	void printBasket(void);
+
+	int getNumberId(void);
+	std::string getUsername(void);
+	std::string getPassword(void);
+	roleType getRole(void);
 };

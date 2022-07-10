@@ -32,6 +32,26 @@ std::vector<Inventory*> Administrator::getInventory(void)
 	return this->inventory;
 }
 
+int Administrator::getNumberId(void)
+{
+	return this->numberID;
+}
+
+std::string Administrator::getUsername(void)
+{
+	return this->username;
+}
+
+std::string Administrator::getPassword(void)
+{
+	return this->password;
+}
+
+roleType Administrator::getRole(void)
+{
+	return this->role;
+}
+
 /*
 void Administrator::changeroleType(Client C)
 {

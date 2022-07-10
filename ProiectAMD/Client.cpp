@@ -50,3 +50,23 @@ void Client::printBasket(void)
 	for (auto i : this->basket)
 		i->Print();
 }
+
+int Client::getNumberId(void)
+{
+	return this->numberID;
+}
+
+std::string Client::getUsername(void)
+{
+	return this->username;
+}
+
+std::string Client::getPassword(void)
+{
+	return this->password;
+}
+
+roleType Client::getRole(void)
+{
+	return this->role;
+}

@@ -18,4 +18,9 @@ public:
 	//void changeroleType(Client C);
 	void printInventory(void);
 	std::vector<Inventory*> getInventory(void);
+
+	int getNumberId(void);
+	std::string getUsername(void);
+	std::string getPassword(void);
+	roleType getRole(void);
 };

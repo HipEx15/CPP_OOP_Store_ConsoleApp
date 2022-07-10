@@ -148,6 +148,7 @@
     <ClCompile Include="Director.cpp" />
     <ClCompile Include="FinalObjects.cpp" />
     <ClCompile Include="GPU.cpp" />
+    <ClCompile Include="Menus.cpp" />
     <ClCompile Include="Products.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="User.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Director.h" />
     <ClInclude Include="FinalObjects.h" />
     <ClInclude Include="GPU.h" />
+    <ClInclude Include="Menus.h" />
     <ClInclude Include="Products.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
