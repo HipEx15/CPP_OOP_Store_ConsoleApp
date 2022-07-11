@@ -14,19 +14,24 @@ Administrator::Administrator(void) : User()
 Administrator::Administrator(int ID, std::string username, std::string password, roleType role) : User(username, password, role, ID)
 {}
 
-void removeItem(std::vector<Inventory*> inventory, Inventory* i)
+void removeItem(std::vector<Inventory*>& inventory, std::string Name, std::string filePath)
 {
-	unsigned short int index = 0;
-	for (auto j : inventory)
+	std::ifstream inFile;
+	inFile.open(filePath);
+	std::string line;
+	std::string newLine;
+	while(getline(inFile, line))
 	{
-		if (j == i)
-			break;
-		else
-			index++;
+		if(line.find(Name) == std::string::npos)
+		{
+			newLine += line + "\n";
+		}
 	}
-
-	std::cout << "\nINDEX: " << index;
-	inventory.erase(inventory.begin() + index);
+	inFile.close();
+	std::ofstream outFile;
+	outFile.open(filePath);
+	outFile << newLine;
+	outFile.close();
 }
 
 void addItem(std::vector<Inventory*>& inventory, std::string filepath)

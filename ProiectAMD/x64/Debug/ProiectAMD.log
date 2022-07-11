@@ -1,2 +1,4 @@
-﻿  Products.cpp
+﻿  Source.cpp
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(28,44): warning C4101: 'optionLog': unreferenced local variable
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(28,68): warning C4101: 'optionClient': unreferenced local variable
   ProiectAMD.vcxproj -> C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\x64\Debug\ProiectAMD.exe

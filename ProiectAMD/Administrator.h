@@ -20,6 +20,6 @@ public:
 	roleType getRole(void);
 };
 
-void removeItem(std::vector<Inventory*> inventory, Inventory* i);
+void removeItem(std::vector<Inventory*>& inventory, std::string Name, std::string filePath);
 void addItem(std::vector<Inventory*>& inventory, std::string filepath);
 void printInventory(std::vector<Inventory*> inventory);
