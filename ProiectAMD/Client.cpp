@@ -3,9 +3,6 @@
 Client::Client(void) : User()
 {}
 
-Client::Client(std::string username, std::string password, roleType role) : User(username, password, role)
-{}
-
 Client::Client(int ID, std::string username, std::string password, roleType role) : User(username, password, role, ID)
 {}
 

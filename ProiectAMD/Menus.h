@@ -13,10 +13,7 @@ void LoginMenu(void);
 
 void RegisterMenu(void);
 void RegisterAdminMenu(void);
-void RegisterAdmin(vector<User>& admins);
-
 void RegisterClientMenu(void);
-void RegisterClient(vector<User>& clients);
 
 vector<string> readFile(string fileName);
 vector<User> tokenize(string filepath, string del);

@@ -14,7 +14,6 @@ protected:
 
 public:
 	User(void);
-	User(std::string username, std::string password, roleType role);
 	User(std::string username, std::string password, roleType role, int ID);
 
 	void print(void);

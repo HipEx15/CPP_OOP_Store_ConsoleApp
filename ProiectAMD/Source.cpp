@@ -10,6 +10,7 @@
 using namespace std;
 
 int flag = 0;
+std::vector<Inventory*> inventory;
 
 int main(void)
 {
@@ -66,62 +67,124 @@ int main(void)
 				break;
 				
 			case 2:
-				RegisterMenu();
-				cin >> optionReg;
-				if (optionReg == 1)
+				if (users.size() == 0)
 				{
-					system("cls");
-					RegisterClientMenu();
-					userData = readUserData();
-					isValid = 0;
-					for (User u : users)
+					RegisterMenu();
+					cin >> optionReg;
+					if (optionReg == 1)
 					{
-
-						if (u.getUsername() == userData[0] && u.getPassword() == userData[1])
+						system("cls");
+						RegisterClientMenu();
+						userData = readUserData();
+						isValid = 0;
+						for (User u : users)
 						{
-							isValid = 1;
-							break;
+
+							if (u.getUsername() == userData[0])
+							{
+								isValid = 1;
+								break;
+							}
+						}
+
+						if (isValid)
+							cout << "Invalid username or password";
+						else
+						{
+							ofstream reg("Register.txt", ios::app);
+							Client customer(1, userData[0], userData[1], client);
+							users.push_back(customer);
+							reg << customer.getRole() << " " << customer.getNumberId() << " " << customer.getUsername() << " " << customer.getPassword() << "\n";
+							reg.close();
 						}
 					}
-
-					if (isValid)
-						cout << "Invalid username or password";
-					else
+					else if (optionReg == 2)
 					{
-						ofstream reg("Register.txt", ios::app);
-						Client customer(userData[0], userData[1], client);
-						users.push_back(customer);
-						reg << customer.getRole() << " " << customer.getNumberId() << " " << customer.getUsername() << " " << customer.getPassword() << "\n";
-						reg.close();
-					}
-				}
-				else if (optionReg == 2)
-				{
-					system("cls");
-					RegisterAdminMenu();
-					userData = readUserData();
-					isValid = 0;
-					for (User u : users)
-					{
-
-						if (u.getUsername() == userData[0] && u.getPassword() == userData[1])
+						system("cls");
+						RegisterAdminMenu();
+						userData = readUserData();
+						isValid = 0;
+						for (User u : users)
 						{
-							isValid = 1;
-							break;
+
+							if (u.getUsername() == userData[0])
+							{
+								isValid = 1;
+								break;
+							}
+						}
+
+						if (isValid)
+							cout << "Invalid username or password";
+						else
+						{
+							ofstream reg("Register.txt", ios::app);
+							Administrator admin(1, userData[0], userData[1], administrator);
+							users.push_back(admin);
+							reg << admin.getRole() << " " << admin.getNumberId() << " " << admin.getUsername() << " " << admin.getPassword() << "\n";
+							reg.close();
 						}
 					}
-
-					if (isValid)
-						cout << "Invalid username or password";
-					else
+				}
+				else
+				{
+					RegisterMenu();
+					cin >> optionReg;
+					if (optionReg == 1)
 					{
-						ofstream reg("Register.txt", ios::app);
-						Administrator admin(userData[0], userData[1], administrator);
-						users.push_back(admin);
-						reg << admin.getRole() << " " << admin.getNumberId() << " " << admin.getUsername() << " " << admin.getPassword() << "\n";
-						reg.close();
+						system("cls");
+						RegisterClientMenu();
+						userData = readUserData();
+						isValid = 0;
+						for (User u : users)
+						{
+
+							if (u.getUsername() == userData[0])
+							{
+								isValid = 1;
+								break;
+							}
+						}
+
+						if (isValid)
+							cout << "Invalid username or password";
+						else
+						{
+							ofstream reg("Register.txt", ios::app);
+							Client customer(users[users.size() - 1].getID() + 1, userData[0], userData[1], client);
+							users.push_back(customer);
+							reg << customer.getRole() << " " << customer.getNumberId() << " " << customer.getUsername() << " " << customer.getPassword() << "\n";
+							reg.close();
+						}
+					}
+					else if (optionReg == 2)
+					{
+						system("cls");
+						RegisterAdminMenu();
+						userData = readUserData();
+						isValid = 0;
+						for (User u : users)
+						{
+							if (u.getUsername() == userData[0])
+							{
+								isValid = 1;
+								break;
+							}
+						}
+
+						if (isValid)
+							cout << "Invalid username or password";
+						else
+						{
+							ofstream reg("Register.txt", ios::app);
+							Administrator admin(users[users.size() - 1].getID() + 1, userData[0], userData[1], administrator);
+							users.push_back(admin);
+							reg << admin.getRole() << " " << admin.getNumberId() << " " << admin.getUsername() << " " << admin.getPassword() << "\n";
+							reg.close();
+						}
 					}
 				}
+				
 				if (optionReg != 0)
 				{
 					cin.get();

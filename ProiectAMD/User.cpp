@@ -9,14 +9,6 @@ User::User(void)
 	this->role = client;
 }
 
-User::User(std::string username, std::string password, roleType role)
-{
-	this->numberID += 1;
-	this->username = username;
-	this->password = password;
-	this->role = role;
-}
-
 User::User(std::string username, std::string password, roleType role, int ID)
 {
 	this->numberID = ID;

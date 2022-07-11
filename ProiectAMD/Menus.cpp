@@ -35,53 +35,11 @@ void RegisterAdminMenu(void)
 	std::cout << "\nRegister as administrator: \n";
 }
 
-//void RegisterAdmin(vector<User>& admins)
-//{
-//	string Name, Password;
-//	cin.get();
-//
-//	cout << "\nNew Username: ";
-//	getline(std::cin, Name);
-//
-//	cout << "\nNew Password: ";
-//	getline(std::cin, Password);
-//
-//	ofstream reg("Register.txt", ios::app);
-//
-//	Administrator Admin(Name, Password, administrator);
-//
-//	admins.push_back(Admin);
-//
-//	reg << Admin.getRole() << " " << Admin.getNumberId() << " " << Admin.getUsername() << " " << Admin.getPassword() << "\n";
-//	reg.close();
-//}
-
 void RegisterClientMenu(void)
 {
 	std::cout << "\n\t---AMD SHOP---\n\t";
 	std::cout << "\nRegister as client: \n";
 }
-
-//void RegisterClient(vector<User>& clients)
-//{
-//	string Name, Password;
-//	cin.get();
-//
-//	cout << "\nNew Username: ";
-//	getline(std::cin, Name);
-//
-//	cout << "\nNew Password: ";
-//	getline(std::cin, Password);
-//
-//	ofstream reg("Register.txt", ios::app);
-//
-//	Client Client(Name, Password, client);
-//
-//	clients.push_back(Client);
-//
-//	reg << Client.getRole() << " " << Client.getNumberId() << " " << Client.getUsername() << " " << Client.getPassword() << "\n";
-//	reg.close();
-//}
 
 vector<string> readFile(string fileName)
 {

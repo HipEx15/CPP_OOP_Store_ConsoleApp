@@ -3,21 +3,18 @@
 Administrator::Administrator(void) : User()
 {}
 
-Administrator::Administrator(std::string username, std::string password, roleType role) : User(username, password, role)
-{}
-
 Administrator::Administrator(int ID, std::string username, std::string password, roleType role) : User(username, password, role, ID)
 {}
 
-void Administrator::addItem(Inventory* i)
+void addItem(std::vector<Inventory*> inventory, Inventory* i)
 {
-	this->inventory.push_back(i);
+	inventory.push_back(i);
 }
 
-void Administrator::removeItem(Inventory* i)
+void removeItem(std::vector<Inventory*> inventory, Inventory* i)
 {
 	unsigned short int index = 0;
-	for (auto j : this->inventory)
+	for (auto j : inventory)
 	{
 		if (j == i)
 			break;
@@ -26,13 +23,13 @@ void Administrator::removeItem(Inventory* i)
 	}
 
 	std::cout << "\nINDEX: " << index;
-	this->inventory.erase(this->inventory.begin() + index);
+	inventory.erase(inventory.begin() + index);
 }
 
-
-std::vector<Inventory*> Administrator::getInventory(void)
+void printInventory(std::vector<Inventory*> inventory)
 {
-	return this->inventory;
+	for (auto i : inventory)
+		i->Print();
 }
 
 int Administrator::getNumberId(void)
@@ -60,9 +57,3 @@ void Administrator::changeroleType(Client C)
 {
 	C.setRole(administrator);
 }*/
-
-void Administrator::printInventory(void)
-{
-	for (auto i : this->inventory)
-		i->Print();
-}
