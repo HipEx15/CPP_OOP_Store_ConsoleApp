@@ -1,8 +1,2 @@
-﻿  Menus.cpp
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(90,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(94,28): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(95,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(206,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(210,28): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(211,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+﻿  Administrator.cpp
   ProiectAMD.vcxproj -> C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\x64\Debug\ProiectAMD.exe

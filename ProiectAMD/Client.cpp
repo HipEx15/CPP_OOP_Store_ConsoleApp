@@ -27,7 +27,6 @@ void Client::addItem(Inventory* i, std::vector<Inventory*> inventory)
 		this->basket.push_back(i);
 	else
 		std::cout << "\Nu avem pe stoc.";
-	
 }
 
 void Client::removeItem(Inventory* i)

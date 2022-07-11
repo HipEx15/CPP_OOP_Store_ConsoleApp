@@ -25,3 +25,13 @@ std::string GPU::enumtoString(void)
 		return "DirectX";
 }
 
+std::string GPU::getMaximumResolution(void)
+{
+	return this->maximumResolution;
+}
+
+version GPU::getDifferentVersions(void)
+{
+	return this->differentVersions;
+}
+

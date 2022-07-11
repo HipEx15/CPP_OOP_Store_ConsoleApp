@@ -55,6 +55,7 @@ void ClientMenu(void)
 	std::cout << "\nClient menu: ";
 	std::cout << "\n 1 - Add product to basket";
 	std::cout << "\n 2 - Remove product to basket";
+	cout << "\nOption: ";
 }
 
 void AdminMenu(void)
@@ -64,6 +65,7 @@ void AdminMenu(void)
 	std::cout << "\n 1 - Add product to inventory";
 	std::cout << "\n 2 - Remove product to inventory";
 	std::cout << "\n 3 - Add admin";
+	cout << "\nOption: ";
 }
 
 vector<Inventory*> ReadInventory(string filepath, string del)
@@ -166,8 +168,6 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 		{
 			cout << "Invalid items type" << endl;
 		}
-		
-		
 	}
 	return inventory;
 }
@@ -231,7 +231,6 @@ vector<User> initiateMembers(string filepath, string del)
 		{
 			cout << "Invalid user type" << endl;
 		}
-
 	}
 	return users;
 }

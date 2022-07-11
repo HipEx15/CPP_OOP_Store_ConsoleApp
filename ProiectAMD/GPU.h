@@ -16,4 +16,8 @@ public:
 	GPU(std::string maximumResolution, version differentVersions);
 	void PrintG(void);
 	std::string enumtoString(void);
+
+	//Getters
+	std::string getMaximumResolution(void);
+	version getDifferentVersions(void);
 };

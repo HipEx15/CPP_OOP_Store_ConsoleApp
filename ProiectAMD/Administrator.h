@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 #include "User.h"
 #include "FinalObjects.h"
 #include "Client.h"
@@ -19,6 +20,6 @@ public:
 	roleType getRole(void);
 };
 
-void addItem(std::vector<Inventory*> inventory, Inventory* i);
 void removeItem(std::vector<Inventory*> inventory, Inventory* i);
+void addItem(std::vector<Inventory*>& inventory, std::string filepath);
 void printInventory(std::vector<Inventory*> inventory);

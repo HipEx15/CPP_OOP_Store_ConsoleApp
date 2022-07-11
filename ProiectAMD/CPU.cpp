@@ -18,3 +18,18 @@ void CPU::PrintC(void)
 {
 	std::cout <<"\n\tCores: " << this->cores << "\n\tThreads: " << this->threads << "\n\tSocket: " << this->socket;
 }
+
+unsigned short int CPU::GetCores(void)
+{
+	return this->cores;
+}
+
+unsigned short int CPU::GetThreads(void)
+{
+	return this->threads;
+}
+
+std::string CPU::GetSocket(void)
+{
+	return this->socket;
+}
