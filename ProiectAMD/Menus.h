@@ -10,10 +10,6 @@ using namespace std;
 void Menu(void);
 
 void LoginMenu(void);
-void LoginAdminMenu(void);
-void LoginClientMenu(void);
-
-void LogInClient(void);
 
 void RegisterMenu(void);
 void RegisterAdminMenu(void);

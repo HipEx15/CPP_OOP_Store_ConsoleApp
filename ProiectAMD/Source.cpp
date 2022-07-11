@@ -36,6 +36,7 @@ int main(void)
 			switch (optionMenu)
 			{
 			case 1:
+				LoginMenu();
 				userData = readUserData();
 				isValid = 0;
 				for (User u : users)
@@ -57,10 +58,11 @@ int main(void)
 						cout << "Welcome mr admin";
 				}
 				else
+				{
 					cout << "Invalid username or password";
-
+					main();
+				}
 				cin.get();
-
 				break;
 				
 			case 2:
@@ -70,17 +72,61 @@ int main(void)
 				{
 					system("cls");
 					RegisterClientMenu();
-					RegisterClient(users);
+					userData = readUserData();
+					isValid = 0;
+					for (User u : users)
+					{
+
+						if (u.getUsername() == userData[0] && u.getPassword() == userData[1])
+						{
+							isValid = 1;
+							break;
+						}
+					}
+
+					if (isValid)
+						cout << "Invalid username or password";
+					else
+					{
+						ofstream reg("Register.txt", ios::app);
+						Client customer(userData[0], userData[1], client);
+						users.push_back(customer);
+						reg << customer.getRole() << " " << customer.getNumberId() << " " << customer.getUsername() << " " << customer.getPassword() << "\n";
+						reg.close();
+					}
 				}
 				else if (optionReg == 2)
 				{
 					system("cls");
 					RegisterAdminMenu();
-					RegisterAdmin(users);
+					userData = readUserData();
+					isValid = 0;
+					for (User u : users)
+					{
+
+						if (u.getUsername() == userData[0] && u.getPassword() == userData[1])
+						{
+							isValid = 1;
+							break;
+						}
+					}
+
+					if (isValid)
+						cout << "Invalid username or password";
+					else
+					{
+						ofstream reg("Register.txt", ios::app);
+						Administrator admin(userData[0], userData[1], administrator);
+						users.push_back(admin);
+						reg << admin.getRole() << " " << admin.getNumberId() << " " << admin.getUsername() << " " << admin.getPassword() << "\n";
+						reg.close();
+					}
 				}
 				if (optionReg != 0)
 				{
+					cin.get();
 					main();
+					break;
 				}
 				
 			case 3:
