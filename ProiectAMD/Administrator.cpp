@@ -52,6 +52,9 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 	unsigned short int nms;
 	unsigned short int memory;
 	float frequency;
+	float priceTag;
+	std::string name;
+	std::string date;
 
 	unsigned short int cores;
 	unsigned short int threads;
@@ -76,7 +79,12 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		cin >> memory;
 		cout << "Frequency: ";
 		cin >> frequency;
-		cout << "Cores: ";
+		cout << "PriceTag: ";
+		cin >> priceTag;
+		cout << "Name: ";
+		cin >> name;
+		cout << "Date: ";
+		cin >> date;
 
 		cin >> cores;
 		cout << "Threads: ";
@@ -85,9 +93,9 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		cin >> socket;
 
 		Dir.setBuilder(&BC);
-		C = Dir.getFC(weight, height, tdp, nms, memory, frequency, cores, threads, socket);
+		C = Dir.getFC(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket);
 		inventory.push_back(C);
-		file << "CPU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << cores << " " << threads << " " << socket << endl;
+		file << "CPU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << cores << " " << threads << " " << socket << " " << priceTag << " " << name << " " << date << endl;
 		file.close();
 	}
 	else if (type == "GPU")
@@ -102,26 +110,32 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		cin >> nms;
 		cout << "Memory: ";
 		cin >> memory;
-
 		cout << "Frequency: ";
 		cin >> frequency;
+		cout << "PriceTag: ";
+		cin >> priceTag;
+		cout << "Name: ";
+		cin >> name;
+		cout << "Date: ";
+		cin >> date;
+		
 		cout << "Resolution: ";
 		cin >> vers;
 		cout << "Version: ";
 		if (vers == 1)
 		{
 			Dir.setBuilder(&BG);
-			G = Dir.getFG(weight, height, tdp, nms, memory, frequency, resolution, OpenGL);
+			G = Dir.getFG(weight, height, tdp, nms, memory, frequency, priceTag, name, date, resolution, OpenGL);
 			inventory.push_back(G);
-			file << "GPU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << resolution << " " << OpenGL << endl;
+			file << "GPU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << resolution << " " << OpenGL << endl;
 			file.close();
 		}
 		else if (vers == 2)
 		{
 			Dir.setBuilder(&BG);
-			G = Dir.getFG(weight, height, tdp, nms, memory, frequency, resolution, DirectX);
+			G = Dir.getFG(weight, height, tdp, nms, memory, frequency, priceTag, name, date, resolution, DirectX);
 			inventory.push_back(G);
-			file << "GPU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << resolution << " " << OpenGL << endl;
+			file << "GPU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << resolution << " " << OpenGL << endl;
 			file.close();
 
 		}
@@ -138,6 +152,14 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		cin >> nms;
 		cout << "Memory: ";
 		cin >> memory;
+		cout << "Frequency: ";
+		cin >> frequency;
+		cout << "PriceTag: ";
+		cin >> priceTag;
+		cout << "Name: ";
+		cin >> name;
+		cout << "Date: ";
+		cin >> date;
 
 		cin >> cores;
 		cout << "Threads: ";
@@ -153,17 +175,17 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		if (vers == 1)
 		{
 			Dir.setBuilder(&BA);
-			A = Dir.getFA(weight, height, tdp, nms, memory, frequency, cores, threads, socket, resolution, OpenGL);
+			A = Dir.getFA(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket, resolution, OpenGL);
 			inventory.push_back(A);
-			file << "ALU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << cores << " " << threads << " " << socket << " " << resolution << " " << OpenGL << endl;
+			file << "ALU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << cores << " " << threads << " " << socket << " " << resolution << " " << OpenGL << endl;
 			file.close();
 		}
 		else if (vers == 2)
 		{
 			Dir.setBuilder(&BA);
-			A = Dir.getFA(weight, height, tdp, nms, memory, frequency, cores, threads, socket, resolution, OpenGL);
+			A = Dir.getFA(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket, resolution, OpenGL);
 			inventory.push_back(A);
-			file << "ALU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << cores << " " << threads << " " << socket << " " << resolution << " " << OpenGL << endl;
+			file << "ALU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << cores << " " << threads << " " << socket << " " << resolution << " " << OpenGL << endl;
 			file.close();
 		}
 	}

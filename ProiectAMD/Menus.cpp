@@ -107,12 +107,16 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 			unsigned short int nms = stoi(items[4]);
 			unsigned short int memory = stoi(items[5]);
 			float frequency = stof(items[6]);
-			unsigned short int cores = stoi(items[7]);
-			unsigned short int threads = stoi(items[8]);
-			string socket = items[9];
+			float priceTag = stof(items[7]);
+			string name = items[8];
+			string date = items[9];
+			
+			unsigned short int cores = stoi(items[10]);
+			unsigned short int threads = stoi(items[11]);
+			string socket = items[12];
 			
 			Dir.setBuilder(&BC);
-			C = Dir.getFC(weight, height, tdp, nms, memory, frequency, cores, threads, socket);
+			C = Dir.getFC(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket);
 			inventory.push_back(C);
 		}
 		else if (items[0] == "GPU")
@@ -123,17 +127,20 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 			unsigned short int nms = stoi(items[4]);
 			unsigned short int memory = stoi(items[5]);
 			float frequency = stof(items[6]);
-			string resolution = items[7];
-			if (items[8] == "1")
+			float priceTag = stof(items[7]);
+			string name = items[8];
+			string date = items[9];
+			string resolution = items[10];
+			if (items[11] == "1")
 			{
 				Dir.setBuilder(&BG);
-				G = Dir.getFG(weight, height, tdp, nms, memory, frequency, resolution, OpenGL);
+				G = Dir.getFG(weight, height, tdp, nms, memory, frequency, priceTag, name, date, resolution, OpenGL);
 				inventory.push_back(G);
 			}
-			else if (items[8] == "2")
+			else if (items[11] == "2")
 			{
 				Dir.setBuilder(&BG);
-				G = Dir.getFG(weight, height, tdp, nms, memory, frequency, resolution, DirectX);
+				G = Dir.getFG(weight, height, tdp, nms, memory, frequency, priceTag, name, date, resolution, DirectX);
 				inventory.push_back(G);
 			}
 		}
@@ -145,22 +152,25 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 			unsigned short int nms = stoi(items[4]);
 			unsigned short int memory = stoi(items[5]);
 			float frequency = stof(items[6]);
+			float priceTag = stof(items[7]);
+			string name = items[8];
+			string date = items[9];
 			
-			unsigned short int cores = stoi(items[7]);
-			unsigned short int threads = stoi(items[8]);
-			string socket = items[9];
+			unsigned short int cores = stoi(items[10]);
+			unsigned short int threads = stoi(items[11]);
+			string socket = items[12];
 			
-			string resolution = items[10];
-			if (items[11] == "1")
+			string resolution = items[13];
+			if (items[14] == "1")
 			{
 				Dir.setBuilder(&BA);
-				A = Dir.getFA(weight, height, tdp, nms, memory, frequency,cores,threads,socket ,resolution, OpenGL);
+				A = Dir.getFA(weight, height, tdp, nms, memory, frequency,priceTag, name, date, cores,threads,socket ,resolution, OpenGL);
 				inventory.push_back(A);
 			}
-			else if (items[11] == "2")
+			else if (items[14] == "2")
 			{
 				Dir.setBuilder(&BA);
-				A = Dir.getFA(weight, height, tdp, nms, memory, frequency, cores, threads, socket, resolution, OpenGL);
+				A = Dir.getFA(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket, resolution, OpenGL);
 				inventory.push_back(A);
 			}
 		}

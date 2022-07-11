@@ -14,7 +14,7 @@ GPU::GPU(std::string maximumResolution, version differentVersions)
 
 void GPU::PrintG(void)
 {
-	std::cout << "\n\tMaximum resolution: " << this->maximumResolution << "\n\tVersion: " << this->enumtoString();
+	std::cout << "\n\tMaximum resolution: " << this->getMaximumResolution() << "\n\tVersion: " << this->enumtoString();
 }
 
 std::string GPU::enumtoString(void)
