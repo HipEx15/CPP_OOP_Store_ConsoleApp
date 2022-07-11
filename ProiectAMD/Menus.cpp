@@ -35,11 +35,35 @@ void RegisterAdminMenu(void)
 	std::cout << "\nRegister as administrator: \n";
 }
 
+void RegisterMenuEmpty(void)
+{
+	std::cout << "\n\t---AMD SHOP---\n\t";
+	std::cout << "\nEmpty shop, please register as admin: \n";
+}
+
 void RegisterClientMenu(void)
 {
 	std::cout << "\n\t---AMD SHOP---\n\t";
 	std::cout << "\nRegister as client: \n";
 }
+
+void ClientMenu(void)
+{
+	std::cout << "\n\t---AMD SHOP---\n\t";
+	std::cout << "\nClient menu: ";
+	std::cout << "\n 1 - Add product to basket";
+	std::cout << "\n 2 - Remove product to basket";
+}
+
+void AdminMenu(void)
+{
+	std::cout << "\n\t---AMD SHOP---\n\t";
+	std::cout << "\nAdministrator menu: \n";
+	std::cout << "\n 1 - Add product to inventory";
+	std::cout << "\n 2 - Remove product to inventory";
+	std::cout << "\n 3 - Add admin";
+}
+
 
 vector<string> readFile(string fileName)
 {

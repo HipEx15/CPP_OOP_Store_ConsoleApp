@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+
 #include "Director.h"
 #include "User.h"
 #include "Administrator.h"
@@ -15,8 +16,8 @@ std::vector<Inventory*> inventory;
 int main(void)
 {
 	vector<User> users = tokenize("Register.txt", (string)" ");
-	for (User u : users)
-		u.print();
+	//for (User u : users)
+	//	u.print();
 
 	unsigned short int optionMenu, optionReg, optionLog;
 
@@ -54,9 +55,11 @@ int main(void)
 				if (isValid)
 				{
 					if (role == client)
-						cout << "Welcome mr client";
+						//cout << "Welcome mr client";
+						ClientMenu();
 					else if (role == administrator)
-						cout << "Welcome mr admin";
+						//cout << "Welcome mr admin";
+						AdminMenu();
 				}
 				else
 				{
@@ -69,62 +72,15 @@ int main(void)
 			case 2:
 				if (users.size() == 0)
 				{
-					RegisterMenu();
-					cin >> optionReg;
-					if (optionReg == 1)
-					{
-						system("cls");
-						RegisterClientMenu();
-						userData = readUserData();
-						isValid = 0;
-						for (User u : users)
-						{
-
-							if (u.getUsername() == userData[0])
-							{
-								isValid = 1;
-								break;
-							}
-						}
-
-						if (isValid)
-							cout << "Invalid username or password";
-						else
-						{
-							ofstream reg("Register.txt", ios::app);
-							Client customer(1, userData[0], userData[1], client);
-							users.push_back(customer);
-							reg << customer.getRole() << " " << customer.getNumberId() << " " << customer.getUsername() << " " << customer.getPassword() << "\n";
-							reg.close();
-						}
-					}
-					else if (optionReg == 2)
-					{
-						system("cls");
-						RegisterAdminMenu();
-						userData = readUserData();
-						isValid = 0;
-						for (User u : users)
-						{
-
-							if (u.getUsername() == userData[0])
-							{
-								isValid = 1;
-								break;
-							}
-						}
-
-						if (isValid)
-							cout << "Invalid username or password";
-						else
-						{
-							ofstream reg("Register.txt", ios::app);
-							Administrator admin(1, userData[0], userData[1], administrator);
-							users.push_back(admin);
-							reg << admin.getRole() << " " << admin.getNumberId() << " " << admin.getUsername() << " " << admin.getPassword() << "\n";
-							reg.close();
-						}
-					}
+					system("cls");
+					RegisterMenuEmpty();
+					userData = readUserData();
+					ofstream reg("Register.txt", ios::app);
+					Administrator admin(1, userData[0], userData[1], administrator);
+					users.push_back(admin);
+					reg << admin.getRole() << " " << admin.getNumberId() << " " << admin.getUsername() << " " << admin.getPassword() << "\n";
+					reg.close();
+					
 				}
 				else
 				{
@@ -183,15 +139,13 @@ int main(void)
 							reg.close();
 						}
 					}
+					if (optionReg == 1 || optionReg == 2)
+					{
+						optionMenu = 4;
+						main();
+					}
 				}
-				
-				if (optionReg != 0)
-				{
-					cin.get();
-					main();
-					break;
-				}
-				
+				break;
 			case 3:
 				return 0;
 				break;

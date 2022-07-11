@@ -1,12 +1,3 @@
-﻿  Administrator.cpp
-  Client.cpp
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(29,16): warning C4129: 'N': unrecognized character escape sequence
-  Menus.cpp
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(75,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(79,28): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(80,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Source.cpp
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(23,44): warning C4101: 'optionLog': unreferenced local variable
-  User.cpp
-  Generating Code...
+﻿  Source.cpp
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(22,44): warning C4101: 'optionLog': unreferenced local variable
   ProiectAMD.vcxproj -> C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\x64\Debug\ProiectAMD.exe
