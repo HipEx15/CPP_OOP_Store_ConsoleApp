@@ -1,2 +1,9 @@
-﻿  Source.cpp
-  ProiectAMD.vcxproj -> C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Debug\ProiectAMD.exe
+﻿  Menus.cpp
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(60,21): warning C4018: '<': signed/unsigned mismatch
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(75,22): warning C4018: '<': signed/unsigned mismatch
+  Source.cpp
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(20,44): warning C4101: 'optionLog': unreferenced local variable
+  Generating Code...
+Administrator.obj : error LNK2019: unresolved external symbol "public: __thiscall User::User(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,enum roleType,int)" (??0User@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0W4roleType@@H@Z) referenced in function "public: __thiscall Administrator::Administrator(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,enum roleType)" (??0Administrator@@QAE@HV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0W4roleType@@@Z)
+Client.obj : error LNK2001: unresolved external symbol "public: __thiscall User::User(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,enum roleType,int)" (??0User@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0W4roleType@@H@Z)
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Debug\ProiectAMD.exe : fatal error LNK1120: 1 unresolved externals

@@ -13,157 +13,56 @@ int flag = 0;
 
 int main(void)
 {
-	//Administrator Admin((string)"Dan", (string)"123456", administrator);
-	//Client Client((string)"Alex", (string)"whatever", client);
-
-	//ifstream createProducts;
-	//vector<string> products;
-	//string temp;
-
-	//createProducts.open("CreateProducts.txt");
-	//if (!createProducts)
-	//{
-	//	cerr << "\nError: file could nnot be opened\n";
-	//	exit(1);
-	//}
-	//while (getline(createProducts,temp))
-	//{
-	//	products.push_back(temp);
-	//}
-
-	//createProducts.close();
-	//cout << "\nVECTORUL ESTE: ";
-	//for (auto i : products)
-	//	cout << i << " ";
-	//cout << "\nSFARSIT";
-
-	////FinalProduct* P;
-	//FinalCPU* C;
-	//FinalGPU* G;
-	//FinalAPU* A;
-
-	//BuildCPU BC;
-	//BuildGPU BG;
-	//BuildAPU BA;
-
-	//Director Dir;
-
-	//Dir.setBuilder(&BC);
-	//C = Dir.getFC(54,23,44,4,8,3.6,6,12,(string)"AM4");
-	////C->Print();
-
-	//Dir.setBuilder(&BG);
-	//G = Dir.getFG(22, 14, 65, 2, 7, 3.6, (string)"1920x1080", DirectX);
-	////G->Print();
-
-	//Dir.setBuilder(&BA);
-	//A = Dir.getFA(12, 13, 14, 15, 16, 17.5, 4, 8, (string)"AM4+", (string)"1280x760", OpenGL);
-	////A->Print();
-
-
-	////VECTORUL CU TOATE OBIECTELE
-	///*vector<Inventory*> Inventory;
-	//Inventory.push_back(C);
-	//Inventory.push_back(G);
-	//Inventory.push_back(A);
-
-	//for (auto i : Inventory)
-	//	i->Print();*/
-
-	//Admin.addItem(C);
-	//Admin.addItem(G);
-	//Admin.addItem(A);
-	//vector<Inventory*> inventory = Admin.getInventory();
-
-
-	//Client.addItem(C, inventory);
-	//Client.printBasket();
-
-	////Admin.printInventory();
-
-	////Admin.removeItem(A);
-	////Admin.printInventory();
+	vector<User> users = tokenize("Register.txt", (string)" ");
+	for (User u : users)
+		u.print();
 
 	unsigned short int optionMenu, optionReg, optionLog;
 
-	/*system("cls");
-	Menu();
-	cin >> optionMenu;
-	system("cls");
-
-	switch (optionMenu)
-	{
-	case 1:
-		LoginMenu();
-		cin >> optionLog;
-		if (optionLog == 1)
-		{
-			system("cls");
-			LoginClientMenu();
-			LogInClient();
-
-		}
-		else if (optionLog == 2)
-		{
-			system("cls");
-
-		}
-		break;
-	case 2:
-		RegisterMenu();
-		cin >> optionReg;
-		if (optionReg == 1)
-		{
-			system("cls");
-			RegisterClientMenu();
-			RegisterClient();
-		}
-		else if (optionReg == 2)
-		{
-			system("cls");
-			RegisterAdminMenu();
-			RegisterAdmin();
-		}
-		if (optionReg != 0)
-			main();
-	case 3:
-		return 0;
-	default:
-		system("cls");
-		main();
-		break;
-	}*/
-
 	system("cls");
 	Menu();
 	cin >> optionMenu;
 	system("cls");
 
-	vector<Administrator> admins;
-	vector<Client> clients;
+	vector<string> userData;
+
+	int isValid;
+	roleType role;
 
 	do {
 		if (optionMenu == 1 || optionMenu == 2
-			|| optionMenu == 3) 
+			|| optionMenu == 3)
 		{
 			switch (optionMenu)
 			{
 			case 1:
-				LoginMenu();
-				cin >> optionLog;
-				if (optionLog == 1)
+				userData = readUserData();
+				isValid = 0;
+				for (User u : users)
 				{
-					system("cls");
-					LoginClientMenu();
-					LogInClient();
 
+					if (u.getUsername() == userData[0] && u.getPassword() == userData[1])
+					{
+						isValid = 1;
+						role = u.getRole();
+						break;
+					}
 				}
-				else if (optionLog == 2)
+
+				if (isValid)
 				{
-					system("cls");
-
+					if (role == client)
+						cout << "Welcome mr client";
+					else if (role == administrator)
+						cout << "Welcome mr admin";
 				}
+				else
+					cout << "Invalid username or password";
+
+				cin.get();
+
 				break;
+				
 			case 2:
 				RegisterMenu();
 				cin >> optionReg;
@@ -171,13 +70,13 @@ int main(void)
 				{
 					system("cls");
 					RegisterClientMenu();
-					RegisterClient(clients);
+					RegisterClient(users);
 				}
 				else if (optionReg == 2)
 				{
 					system("cls");
 					RegisterAdminMenu();
-					RegisterAdmin(admins);
+					RegisterAdmin(users);
 				}
 				if (optionReg != 0)
 				{
@@ -186,6 +85,7 @@ int main(void)
 				
 			case 3:
 				return 0;
+				break;
 			default:
 				system("cls");
 				main();
@@ -196,8 +96,9 @@ int main(void)
 		{
 			flag = 1;
 		}
-	
-}while (flag == 0);
+
+	} while (flag == 0);
+
 
 	return 0;
 }

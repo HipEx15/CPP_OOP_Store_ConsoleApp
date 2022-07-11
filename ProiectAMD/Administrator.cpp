@@ -6,6 +6,9 @@ Administrator::Administrator(void) : User()
 Administrator::Administrator(std::string username, std::string password, roleType role) : User(username, password, role)
 {}
 
+Administrator::Administrator(int ID, std::string username, std::string password, roleType role) : User(username, password, role, ID)
+{}
+
 void Administrator::addItem(Inventory* i)
 {
 	this->inventory.push_back(i);

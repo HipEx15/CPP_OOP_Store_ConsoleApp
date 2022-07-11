@@ -5,6 +5,8 @@
 #include "Administrator.h"
 #include "Client.h"
 
+using namespace std;
+
 void Menu(void);
 
 void LoginMenu(void);
@@ -15,7 +17,11 @@ void LogInClient(void);
 
 void RegisterMenu(void);
 void RegisterAdminMenu(void);
-void RegisterAdmin(std::vector<Administrator>& admins);
+void RegisterAdmin(vector<User>& admins);
 
 void RegisterClientMenu(void);
-void RegisterClient(std::vector<Client>& clients);
+void RegisterClient(vector<User>& clients);
+
+vector<string> readFile(string fileName);
+vector<User> tokenize(string filepath, string del);
+vector<string> readUserData(void);

@@ -13,6 +13,8 @@ private:
 public:
 	Client(void);
 	Client(std::string username, std::string password, roleType role);
+	Client(int ID, std::string username, std::string password, roleType role);
+
 	void setRole(roleType role);
 	void addItem(Inventory* i, std::vector<Inventory*> inventory);
 	void removeItem(Inventory* i);

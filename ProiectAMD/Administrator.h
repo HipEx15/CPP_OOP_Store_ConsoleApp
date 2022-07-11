@@ -13,6 +13,8 @@ private:
 public:
 	Administrator(void);
 	Administrator(std::string username, std::string password, roleType role);
+	Administrator(int ID, std::string username, std::string password, roleType role);
+
 	void addItem(Inventory* i);
 	void removeItem(Inventory* i);
 	//void changeroleType(Client C);
