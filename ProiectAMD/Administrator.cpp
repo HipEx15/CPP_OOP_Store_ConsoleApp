@@ -17,22 +17,24 @@ Administrator::Administrator(int ID, std::string username, std::string password,
 
 void removeItem(std::string Name, std::string filePath)
 {
-	std::ifstream inFile;
-	inFile.open(filePath);
-	std::string line;
-	std::string newLine;
-	while(getline(inFile, line))
+	string line;
+	fstream fin;
+	fstream fout;
+	fin.open(filePath, ios::in);
+	fout.open("Temp.txt", ios::out | ios::app);
+
+	vector<string> lines;
+	while (getline(fin, line)) 
 	{
-		if(line.find(Name) == std::string::npos)
-		{
-			newLine += line + "\n";
-		}
+		if (line.find(Name) == string::npos) 
+			fout << line << endl;
+		
 	}
-	inFile.close();
-	std::ofstream outFile;
-	outFile.open(filePath);
-	outFile << newLine;
-	outFile.close();
+	fout.close();
+	fin.close();
+
+	remove("Inventory.txt");
+	rename("Temp.txt", "Inventory.txt");
 }
 
 void addItem(std::vector<Inventory*>& inventory, std::string filepath)
@@ -126,8 +128,9 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		cin >> date;
 		
 		cout << "Resolution: ";
-		cin >> vers;
+		cin >> resolution;
 		cout << "Version: ";
+		cin >> vers;
 		if (vers == 1)
 		{
 			Dir.setBuilder(&BG);
@@ -172,11 +175,10 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		cout << "Socket: ";
 		cin >> socket;
 
-		cout << "Frequency: ";
-		cin >> frequency;
 		cout << "Resolution: ";
-		cin >> vers;
+		cin >> resolution;
 		cout << "Version: ";
+		cin >> vers;
 		if (vers == 1)
 		{
 			Dir.setBuilder(&BA);
