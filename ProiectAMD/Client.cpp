@@ -146,19 +146,29 @@ vector<Inventory*> ReadBasket(string filepath, string del)
 	return inventory;
 }
 
-void Client::removeItem(Inventory* i)
+void Client::removeItem(std::string Name, std::string filePath)
 {
-	unsigned short int index = 0;
-	for (auto j : this->basket)
-	{
-		if (j == i)
-			break;
-		else
-			index++;
-	}
+	string line;
+	fstream fin;
+	fstream fout;
+	
+	string Filename = "Basket" + this->getUsername() + ".txt";
 
-	std::cout << "\nINDEX: " << index;
-	this->basket.erase(this->basket.begin() + index);
+	fin.open(filePath, ios::in);
+	fout.open("Temp.txt", ios::out | ios::app);
+
+	vector<string> lines;
+	while (getline(fin, line))
+	{
+		if (line.find(Name) == string::npos)
+			fout << line << endl;
+
+	}
+	fout.close();
+	fin.close();
+
+	remove(Filename.c_str());
+	rename("Temp.txt", Filename.c_str());
 }
 
 void Client::printBasket(void)
@@ -190,6 +200,11 @@ roleType Client::getRole(void)
 void Client::setBasket(std::vector<Inventory*> basket)
 {
 	this->basket = basket;
+}
+
+std::vector<Inventory*> Client::getBasket(void)
+{
+	return this->basket;
 }
 
 Type whichType(void)

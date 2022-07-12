@@ -23,7 +23,7 @@ public:
 
 	void setRole(roleType role);
 	void addItem(std::string fileName, std::string newFileName, std::string Name);
-	void removeItem(Inventory* i);
+	void removeItem(std::string Name, std::string filePath);
 
 	void printBasket(void);
 
@@ -32,6 +32,8 @@ public:
 	std::string getPassword(void);
 	roleType getRole(void);
 	void setBasket(vector<Inventory*> basket);
+
+	std::vector<Inventory*> getBasket(void);
 };
 
 Type whichType(void);

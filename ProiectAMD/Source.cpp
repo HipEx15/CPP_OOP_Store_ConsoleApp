@@ -44,6 +44,7 @@ int main(void)
 	int isValid;
 	roleType role = client;
 	Client user;
+	Administrator admin;
 
 	do {
 		system("cls");
@@ -80,6 +81,10 @@ int main(void)
 						if (role == client)
 						{
 							user = Client(u.getID(), u.getUsername(), u.getPassword(), u.getRole());
+						}
+						else if (role == administrator)
+						{
+							admin = Administrator(u.getID(), u.getUsername(), u.getPassword(), u.getRole());
 						}
 					}
 				}
@@ -201,6 +206,19 @@ int main(void)
 							user.setBasket(temp);
 							break;
 						}
+						case 2:
+						{
+							system("cls");
+							cout << "\nThe list of items in basket: \n";
+							for (auto i : user.getBasket())
+								i->Print();
+							std::cout << "\nEnter item name to remove: ";
+							cin >> itemtoRemove;
+							user.removeItem(itemtoRemove, Filename.c_str());
+							user.setBasket(ReadInventory(Filename.c_str(), (string)" "));
+							break;
+							break;
+						}
 						case 3:
 						{
 							system("cls");
@@ -243,7 +261,7 @@ int main(void)
 
 							case 1:
 								system("cls");
-								addItem(inventory, "Inventory.txt");
+								admin.addItem(inventory, "Inventory.txt");
 								break;
 							case 2:
 								system("cls");
@@ -252,7 +270,7 @@ int main(void)
 									i->Print();
 								std::cout << "\nEnter item name to remove: ";
 								cin >> itemtoRemove;
-								removeItem(itemtoRemove, "Inventory.txt");
+								admin.removeItem(itemtoRemove, "Inventory.txt");
 								inventory = ReadInventory("Inventory.txt", (string)" ");
 								break;
 							case 3:
@@ -263,7 +281,7 @@ int main(void)
 										i.print();
 								std::cout << "\nEnter client name to change his role: ";
 								cin >> clientRoletochange;
-								modifyRoleType(clientRoletochange, users, administrator);
+								admin.modifyRoleType(clientRoletochange, users, administrator);
 								break;
 							case 4:
 								system("cls");

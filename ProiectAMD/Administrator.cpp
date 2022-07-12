@@ -15,7 +15,7 @@ Administrator::Administrator(void) : User()
 Administrator::Administrator(int ID, std::string username, std::string password, roleType role) : User(username, password, role, ID)
 {}
 
-void removeItem(std::string Name, std::string filePath)
+void Administrator::removeItem(std::string Name, std::string filePath)
 {
 	string line;
 	fstream fin;
@@ -37,7 +37,7 @@ void removeItem(std::string Name, std::string filePath)
 	rename("Temp.txt", "Inventory.txt");
 }
 
-void addItem(std::vector<Inventory*>& inventory, std::string filepath)
+void Administrator::addItem(std::vector<Inventory*>& inventory, std::string filepath)
 {
 	string type;
 
@@ -236,7 +236,7 @@ bool memberExists(std::string username, vector<User> users)
 	return false;
 }
 
-void modifyRoleType(std::string username, vector<User>& users, roleType role)
+void Administrator::modifyRoleType(std::string username, vector<User>& users, roleType role)
 {
 	if (memberExists(username, users))
 	{
