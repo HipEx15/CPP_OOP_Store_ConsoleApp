@@ -16,22 +16,21 @@ void Client::setRole(roleType role)
 	this->role = role;
 }
 
-
-//void Client::addItem(std::string fileName, std::string newFileName, std::string Name)
-//{
-//	std::ifstream file(fileName);
-//	std::ofstream newFile(newFileName);
-//	std::string line;
-//	while (std::getline(file, line))
-//	{
-//		if (line.find(line == Name) != std::string::npos)
-//		{
-//			newFile << line << std::endl;
-//		}
-//	}
-//	file.close();
-//	newFile.close();
-//}
+void Client::addItem(std::string fileName, std::string newFileName, std::string Name)
+{
+	std::ifstream file(fileName);
+	std::ofstream newFile(newFileName, ios::app);
+	std::string line;
+	while (std::getline(file, line))
+	{
+		if (line.find(Name) != std::string::npos)
+		{
+			newFile << line << std::endl;
+		}
+	}
+	file.close();
+	newFile.close();
+}
 
 vector<Inventory*> ReadBasket(string filepath, string del)
 {

@@ -1,9 +1,3 @@
-﻿  Client.cpp
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(58,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(62,28): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(63,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Source.cpp
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(31,44): warning C4101: 'optionLog': unreferenced local variable
-  Generating Code...
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(209): warning C4715: 'whichType': not all control paths return a value
+﻿  Source.cpp
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(33,44): warning C4101: 'optionLog': unreferenced local variable
   ProiectAMD.vcxproj -> C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\x64\Debug\ProiectAMD.exe

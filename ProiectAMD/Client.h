@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 
+using namespace std;
+
 #include "User.h"
 #include "Administrator.h"
 #include "FinalObjects.h"
@@ -13,7 +15,7 @@ enum Type {cpu, gpu, apu};
 class Client : public User
 {
 private:
-	std::vector<Inventory*> basket;
+	vector<Inventory*> basket;
 
 public:
 	Client(void);
@@ -29,7 +31,7 @@ public:
 	std::string getUsername(void);
 	std::string getPassword(void);
 	roleType getRole(void);
-	void setBasket(std::vector<Inventory*> basket);
+	void setBasket(vector<Inventory*> basket);
 };
 
 Type whichType(void);

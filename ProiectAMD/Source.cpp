@@ -25,6 +25,8 @@ enum states {
 
 int main(void)
 {
+	std::vector<Inventory*> temp = inventory;
+	
 	vector<User> users = initiateMembers("Register.txt", (string)" ");
 	vector<Inventory*> inventory = ReadInventory("Inventory.txt", (string)" ");
 
@@ -36,10 +38,12 @@ int main(void)
 	states state = homescreen;
 
 	vector<string> userData;
+	string Filename = "";
+	
 
 	int isValid;
 	roleType role = client;
-	User user;
+	Client user;
 
 	do {
 		system("cls");
@@ -75,7 +79,7 @@ int main(void)
 						role = u.getRole();
 						if (role == client)
 						{
-							user = u;
+							user = Client(u.getID(), u.getUsername(), u.getPassword(), u.getRole());
 						}
 					}
 				}
@@ -175,7 +179,7 @@ int main(void)
 					if (state == clientMenu) {
 						ClientMenu();
 						cin >> optionClient;
-						Client* CLIENT = (Client*)&user;
+						Filename = "Basket" + user.getUsername() + ".txt";
 						string name;
 						Type type;
 						switch (optionClient) {
@@ -189,17 +193,21 @@ int main(void)
 							cout << "\nName of product: ";
 							cin >> name;
 							cin.get();
-							//create output file
-							ofstream out("Basket" + user.getUsername() + ".txt", ios::app || ios::out);
-							CLIENT->addItem("Inventory.txt", "Basket" + user.getUsername() + ".txt", name);
+							ofstream out("Basket" + user.getUsername() + ".txt", ios::app);
+							
+							user.addItem("Inventory.txt", Filename.c_str(), name);
+							temp = ReadInventory(Filename.c_str(), (string)" ");
 							out.close();
+							user.setBasket(temp);
 							break;
 						}
 						case 3:
 						{
 							system("cls");
+							temp = ReadInventory(Filename.c_str(), (string)" ");
+							user.setBasket(temp);
 							cout << "\nThe list of items in basket: \n";
-							CLIENT->printBasket();
+							user.printBasket();
 							cin.get();
 							cout << "\nPress enter to return to the menu.\n";
 							cin.get();
