@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <fstream>
 
@@ -13,24 +12,24 @@ using namespace std;
 int flag = 0;
 std::vector<Inventory*> inventory;
 
-////TO DO : o multime de id-uri {1,2,3,4,5,6} si sterg 3 si adaug 1 => {1,2,4,5,6,7}
-
 enum states {
 	homescreen,
 	login,
 	reg,
 	clientMenu,
-	adminMenu
+	adminMenu,
+	filtersMenu
 };
 
 int main(void)
 {
 	std::vector<Inventory*> temp = inventory;
-	
+
 	vector<User> users = initiateMembers("Register.txt", (string)" ");
 	vector<Inventory*> inventory = ReadInventory("Inventory.txt", (string)" ");
 
-	unsigned short int optionMenu, optionReg, optionLog, optionAdmin, optionClient;
+	unsigned short int optionMenu, optionReg, optionLog, optionAdmin, optionClient, optionFilters;
+	unsigned int t = 0;
 
 	string itemtoRemove;
 	string clientRoletochange;
@@ -39,7 +38,7 @@ int main(void)
 
 	vector<string> userData;
 	string Filename = "";
-	
+
 
 	int isValid;
 	roleType role = client;
@@ -66,7 +65,15 @@ int main(void)
 		}
 		else
 			//login
-			if (state == login) {
+			if (t > 2)
+			{
+				cin.get();
+				cout << "Invalid username or password. Press enter to continue.";
+				cin.get();
+				state = homescreen;
+				t = 0;
+			}
+			else if (state == login) {
 				LoginMenu();
 				userData = readUserData();
 
@@ -98,7 +105,7 @@ int main(void)
 				}
 				else
 				{
-					cout << "Invalid username or password!\n";
+					t++;
 				}
 
 			}
@@ -187,6 +194,7 @@ int main(void)
 						Filename = "Basket" + user.getUsername() + ".txt";
 						string name;
 						Type type;
+
 						switch (optionClient) {
 						case 0:
 							state = homescreen;
@@ -199,7 +207,7 @@ int main(void)
 							cin >> name;
 							cin.get();
 							ofstream out("Basket" + user.getUsername() + ".txt", ios::app);
-							
+
 							user.addItem("Inventory.txt", Filename.c_str(), name);
 							temp = ReadInventory(Filename.c_str(), (string)" ");
 							out.close();
@@ -239,6 +247,18 @@ int main(void)
 							cin.get();
 							cout << "\nPress enter to return to the menu.\n";
 							cin.get();
+							break;
+						case 5:
+							system("cls");
+							state = filtersMenu;
+							break;
+						case 6:
+							system("cls");
+							user.printTotalPrice();
+							cin.get();
+							cout << "\nPress enter to return to the menu.\n";
+							cin.get();
+							state = clientMenu;
 							break;
 						case 9:
 							flag = 1;
@@ -296,7 +316,66 @@ int main(void)
 								break;
 							}
 						}
+						else
+							if (state == filtersMenu) {
+								FiltersMenu();
+								user.setBasket(ReadInventory(Filename.c_str(), (string)" "));
+								cin >> optionFilters;
+								switch (optionFilters) {
+								case 0:
+									state = homescreen;
+									break;
 
+								case 1:
+									user.sortByName(inventory, 1);
+									cin.get();
+									cout << "\nPress enter to return to the menu.\n";
+									cin.get();
+									break;
+								case 2:
+									user.sortByName(inventory, 0);
+									cin.get();
+									cout << "\nPress enter to return to the menu.\n";
+									cin.get();
+									break;
+
+								case 3:
+									user.sortByRelease(inventory, 1);
+									cin.get();
+									cout << "\nPress enter to return to the menu.\n";
+									cin.get();
+									break;
+								case 4:
+									user.sortByRelease(inventory, 0);
+									cin.get();
+									cout << "\nPress enter to return to the menu.\n";
+									cin.get();
+									break;
+
+								case 5:
+									user.sortByPrice(inventory, 1);
+									cin.get();
+									cout << "\nPress enter to return to the menu.\n";
+									cin.get();
+									break;
+								case 6:
+									user.sortByPrice(inventory, 0);
+									cin.get();
+									cout << "\nPress enter to return to the menu.\n";
+									cin.get();
+									break;
+
+								case 8:
+									state = clientMenu;
+									break;
+
+								case 9:
+									flag = 1;
+									break;
+
+								}
+
+							}
 
 	} while (flag == 0);
 

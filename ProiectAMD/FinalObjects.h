@@ -9,6 +9,7 @@ class Inventory
 {
 public:
 	virtual void Print(void) {};
+	virtual Products* getProduct() { return NULL; };
 };
 
 class FinalProduct : public Inventory
@@ -19,6 +20,11 @@ public:
 	{
 		std::cout << "\n    PRODUCT: ";
 		p->PrintP();
+	}
+
+	Products* getProduct()
+	{
+		return p;
 	}
 };
 
@@ -33,6 +39,11 @@ public:
 		p->PrintP();
 		c->PrintC();
 	}
+
+	Products* getProduct()
+	{
+		return p;
+	}
 };
 
 class FinalGPU : public Inventory
@@ -45,6 +56,10 @@ public:
 		std::cout << "\n    GPU: ";
 		p->PrintP();
 		g->PrintG();
+	}
+	Products* getProduct()
+	{
+		return p;
 	}
 };
 
@@ -60,5 +75,9 @@ public:
 		p->PrintP();
 		c->PrintC();
 		g->PrintG();
+	}
+	Products* getProduct()
+	{
+		return p;
 	}
 };

@@ -26,13 +26,17 @@ public:
 	void removeItem(std::string Name, std::string filePath);
 
 	void printBasket(void);
+	void sortByName(std::vector<Inventory*>& inventory, int asc = 1);
+	void sortByRelease(std::vector<Inventory*>& inventory, int asc = 1);
+	void sortByPrice(std::vector<Inventory*>& inventory, int asc = 1);
+	void printTotalPrice(void);
 
 	int getNumberId(void);
 	std::string getUsername(void);
 	std::string getPassword(void);
 	roleType getRole(void);
+	
 	void setBasket(vector<Inventory*> basket);
-
 	std::vector<Inventory*> getBasket(void);
 };
 

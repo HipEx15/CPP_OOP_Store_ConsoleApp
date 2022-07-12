@@ -19,6 +19,8 @@ void RegisterClientMenu(void);
 void ClientMenu(void);
 void AdminMenu(void);
 
+void FiltersMenu(void);
+
 vector<string> readFile(string fileName);
 vector<Inventory*> ReadInventory(string filepath, string del);
 vector<User> initiateMembers(string filepath, string del);

@@ -2,6 +2,7 @@
 #include "User.h"
 #include "Builder.h"
 #include "Director.h"
+#include <algorithm>
 #include "Menus.h"
 #include <fstream>
 
@@ -151,7 +152,7 @@ void Client::removeItem(std::string Name, std::string filePath)
 	string line;
 	fstream fin;
 	fstream fout;
-	
+
 	string Filename = "Basket" + this->getUsername() + ".txt";
 
 	fin.open(filePath, ios::in);
@@ -176,6 +177,91 @@ void Client::printBasket(void)
 	for (auto i : this->basket)
 		i->Print();
 }
+
+void Client::printTotalPrice(void) {
+	float finalPrice = 0;
+
+	for (auto i : this->basket)
+		finalPrice += i->getProduct()->GetPriceTag();
+
+	std::cout << "Price: " << finalPrice;
+}
+
+void Client::sortByName(std::vector<Inventory*>& inventory, int asc) {
+	
+	for (int i = 0; i < inventory.size() - 1; i++)
+	{
+		for (int j = i + 1; j < inventory.size(); j++) {
+			Products* a1 = inventory[i]->getProduct();
+			Products* a2 = inventory[j]->getProduct();
+
+
+			if (asc != 0) {
+				if (strcmp(a1->GetName().c_str(), a2->GetName().c_str()) > 0) {
+					std::swap(inventory[i], inventory[j]);
+				}
+			}
+			else
+				if (strcmp(a1->GetName().c_str(), a2->GetName().c_str()) < 0) {
+					std::swap(inventory[i], inventory[j]);
+				}
+
+		}
+	}
+
+	for (int i = 0; i < inventory.size(); i++)
+		inventory[i]->Print();
+
+}
+
+void Client::sortByRelease(std::vector<Inventory*>& inventory, int asc) {
+
+	for (int i = 0; i < inventory.size() - 1; i++)
+		for (int j = i + 1; j < inventory.size(); j++) {
+			Products* a1 = inventory[i]->getProduct();
+			Products* a2 = inventory[j]->getProduct();
+
+			if (asc != 0) {
+				if (strcmp(a1->GetDate().c_str(), a2->GetDate().c_str()) > 0) {
+					std::swap(inventory[i], inventory[j]);
+				}
+			}
+			else
+				if (strcmp(a1->GetDate().c_str(), a2->GetDate().c_str()) < 0) {
+					std::swap(inventory[i], inventory[j]);
+				}
+
+		}
+
+	for (int i = 0; i < inventory.size(); i++)
+		inventory[i]->Print();
+
+}
+
+void Client::sortByPrice(std::vector<Inventory*>& inventory, int asc) {
+
+	for (int i = 0; i < inventory.size() - 1; i++)
+		for (int j = i + 1; j < inventory.size(); j++) {
+			Products* a1 = inventory[i]->getProduct();
+			Products* a2 = inventory[j]->getProduct();
+
+			if (asc != 0) {
+				if (a1->GetPriceTag() > a2->GetPriceTag()) {
+					std::swap(inventory[i], inventory[j]);
+				}
+			}
+			else
+				if (a1->GetPriceTag() < a2->GetPriceTag()) {
+					std::swap(inventory[i], inventory[j]);
+				}
+
+		}
+
+	for (int i = 0; i < inventory.size(); i++)
+		inventory[i]->Print();
+
+}
+
 
 int Client::getNumberId(void)
 {

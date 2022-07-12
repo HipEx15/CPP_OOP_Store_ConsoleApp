@@ -1,9 +1,25 @@
-﻿  Client.cpp
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(56,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(60,28): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(61,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+﻿  APU.cpp
+  Administrator.cpp
+  Builder.cpp
+  CPU.cpp
+  Client.cpp
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(57,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(61,28): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(62,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Director.cpp
+  FinalObjects.cpp
+  GPU.cpp
+  Menus.cpp
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(118,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(122,28): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(123,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(242,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(246,28): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Menus.cpp(247,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Products.cpp
   Source.cpp
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(33,44): warning C4101: 'optionLog': unreferenced local variable
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Source.cpp(31,44): warning C4101: 'optionLog': unreferenced local variable
   Generating Code...
-C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(222): warning C4715: 'whichType': not all control paths return a value
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\GPU.cpp(26): warning C4715: 'GPU::enumtoString': not all control paths return a value
+C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\Client.cpp(308): warning C4715: 'whichType': not all control paths return a value
   ProiectAMD.vcxproj -> C:\AMD_SummerCamp\Proiect_SummercampAMD\ProiectAMD\x64\Debug\ProiectAMD.exe

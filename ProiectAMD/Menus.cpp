@@ -55,9 +55,28 @@ void ClientMenu(void)
 	std::cout << "\nClient menu: ";
 	std::cout << "\n 0 - Log out";
 	std::cout << "\n 1 - Add product to basket";
-	std::cout << "\n 2 - Remove product to basket";
+	std::cout << "\n 2 - Remove product from basket";
 	std::cout << "\n 3 - Print basket";
 	std::cout << "\n 4 - Print inventory";
+	std::cout << "\n 5 - Print by filter";
+	std::cout << "\n 6 - Checkout";
+	std::cout << "\n 9 - Exit";
+	cout << "\nOption: ";
+}
+
+void FiltersMenu(void)
+{
+	std::cout << "\n\t---AMD SHOP---\n\t";
+	std::cout << "\nClient menu: ";
+	std::cout << "\n 0 - Log out";
+	std::cout << "\n 1 - Sort by name (asc)";
+	std::cout << "\n 2 - Sort by name (desc)";
+	std::cout << "\n 3 - Sort by release date (asc)";
+	std::cout << "\n 4 - Sort by release date (desc)";
+	std::cout << "\n 5 - Sort by price (asc)";
+	std::cout << "\n 6 - Sort by price (desc)";
+
+	std::cout << "\n 8 - Back";
 	std::cout << "\n 9 - Exit";
 	cout << "\nOption: ";
 }
@@ -80,7 +99,7 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 	vector<string> tokens = readFile(filepath);
 
 	vector<Inventory*> inventory;
-	
+
 	for (string token : tokens)
 	{
 		FinalCPU* C;
@@ -92,7 +111,7 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 		BuildAPU BA;
 
 		Director Dir;
-		
+
 		vector<string> items;
 
 		int start = 0;
@@ -103,7 +122,7 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 			start = end + del.size();
 			end = token.find(del, start);
 		}
-		
+
 		items.push_back(token.substr(start, end - start));
 
 		if (items[0] == "CPU")
@@ -117,11 +136,11 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 			float priceTag = stof(items[7]);
 			string name = items[8];
 			string date = items[9];
-			
+
 			unsigned short int cores = stoi(items[10]);
 			unsigned short int threads = stoi(items[11]);
 			string socket = items[12];
-			
+
 			Dir.setBuilder(&BC);
 			C = Dir.getFC(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket);
 			inventory.push_back(C);
@@ -162,16 +181,16 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 			float priceTag = stof(items[7]);
 			string name = items[8];
 			string date = items[9];
-			
+
 			unsigned short int cores = stoi(items[10]);
 			unsigned short int threads = stoi(items[11]);
 			string socket = items[12];
-			
+
 			string resolution = items[13];
 			if (items[14] == "1")
 			{
 				Dir.setBuilder(&BA);
-				A = Dir.getFA(weight, height, tdp, nms, memory, frequency,priceTag, name, date, cores,threads,socket ,resolution, OpenGL);
+				A = Dir.getFA(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket, resolution, OpenGL);
 				inventory.push_back(A);
 			}
 			else if (items[14] == "2")
@@ -221,7 +240,7 @@ vector<User> initiateMembers(string filepath, string del)
 
 		int start = 0;
 		int end = token.find(del);
-		while (end != -1) 
+		while (end != -1)
 		{
 			userData.push_back(token.substr(start, end - start));
 			start = end + del.size();
