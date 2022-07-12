@@ -34,3 +34,7 @@ std::string User::getPassword(void) {
 roleType User::getRole(void) {
 	return this->role;
 }
+
+void User::setRole(roleType role) {
+	this->role = role;
+}

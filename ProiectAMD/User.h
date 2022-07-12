@@ -21,4 +21,6 @@ public:
 	std::string getUsername(void);
 	std::string getPassword(void);
 	roleType getRole(void);
+
+	void setRole(roleType role);
 };

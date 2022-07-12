@@ -5,6 +5,7 @@
 #include "Administrator.h"
 #include "Builder.h"
 #include "Director.h"
+#include "Menus.h"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ Administrator::Administrator(void) : User()
 Administrator::Administrator(int ID, std::string username, std::string password, roleType role) : User(username, password, role, ID)
 {}
 
-void removeItem(std::vector<Inventory*>& inventory, std::string Name, std::string filePath)
+void removeItem(std::string Name, std::string filePath)
 {
 	std::ifstream inFile;
 	inFile.open(filePath);
@@ -91,6 +92,7 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		cout << "Date: ";
 		cin >> date;
 
+		cout << "Cores: ";
 		cin >> cores;
 		cout << "Threads: ";
 		cin >> threads;
@@ -101,7 +103,6 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		C = Dir.getFC(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket);
 		inventory.push_back(C);
 		file << "CPU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << cores << " " << threads << " " << socket << " " << priceTag << " " << name << " " << date << endl;
-		file.close();
 	}
 	else if (type == "GPU")
 	{
@@ -133,7 +134,6 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 			G = Dir.getFG(weight, height, tdp, nms, memory, frequency, priceTag, name, date, resolution, OpenGL);
 			inventory.push_back(G);
 			file << "GPU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << resolution << " " << OpenGL << endl;
-			file.close();
 		}
 		else if (vers == 2)
 		{
@@ -141,11 +141,10 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 			G = Dir.getFG(weight, height, tdp, nms, memory, frequency, priceTag, name, date, resolution, DirectX);
 			inventory.push_back(G);
 			file << "GPU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << resolution << " " << OpenGL << endl;
-			file.close();
 
 		}
 	}
-	else if (type == "ALU")
+	else if (type == "APU")
 	{
 		cout << "Weight: ";
 		cin >> weight;
@@ -166,6 +165,7 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 		cout << "Date: ";
 		cin >> date;
 
+		cout << "Cores: ";
 		cin >> cores;
 		cout << "Threads: ";
 		cin >> threads;
@@ -182,18 +182,18 @@ void addItem(std::vector<Inventory*>& inventory, std::string filepath)
 			Dir.setBuilder(&BA);
 			A = Dir.getFA(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket, resolution, OpenGL);
 			inventory.push_back(A);
-			file << "ALU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << cores << " " << threads << " " << socket << " " << resolution << " " << OpenGL << endl;
-			file.close();
+			file << "APU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << cores << " " << threads << " " << socket << " " << resolution << " " << OpenGL << endl;
 		}
 		else if (vers == 2)
 		{
 			Dir.setBuilder(&BA);
 			A = Dir.getFA(weight, height, tdp, nms, memory, frequency, priceTag, name, date, cores, threads, socket, resolution, OpenGL);
 			inventory.push_back(A);
-			file << "ALU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << cores << " " << threads << " " << socket << " " << resolution << " " << OpenGL << endl;
-			file.close();
+			file << "APU" << " " << weight << " " << height << " " << tdp << " " << nms << " " << memory << " " << frequency << " " << priceTag << " " << name << " " << date << " " << cores << " " << threads << " " << socket << " " << resolution << " " << OpenGL << endl;
 		}
+		
 	}
+	file.close();
 }
 
 void printInventory(std::vector<Inventory*> inventory)
@@ -222,9 +222,42 @@ roleType Administrator::getRole(void)
 	return this->role;
 }
 
-
-/*
-void Administrator::changeroleType(Client C)
+bool memberExists(std::string username, vector<User> users)
 {
-	C.setRole(administrator);
-}*/
+	for (int i = 0; i < users.size(); i++)
+	{
+		if (users[i].getUsername() == username)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+void modifyRoleType(std::string username, vector<User>& users, roleType role)
+{
+	if (memberExists(username, users))
+	{
+		for (int i = 0; i < users.size(); i++)
+		{
+			if (users[i].getUsername() == username)
+			{
+				users[i].setRole(role);
+			}
+		}
+
+		updateFile(users);
+	}
+}
+
+bool updateFile(vector<User> users) {
+	ofstream file;
+	file.open("Register.txt");
+	for (int i = 0; i < users.size(); i++)
+	{
+		file << users[i].getRole() << " " << users[i].getID() << " " << users[i].getUsername() << " " << users[i].getPassword() << endl;
+	}
+	file.close();
+
+	return true;
+}

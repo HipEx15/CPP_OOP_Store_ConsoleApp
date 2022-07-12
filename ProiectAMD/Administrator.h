@@ -6,6 +6,8 @@
 #include "FinalObjects.h"
 #include "Client.h"
 
+using namespace std;
+
 class Administrator : public User
 {
 public:
@@ -20,6 +22,10 @@ public:
 	roleType getRole(void);
 };
 
-void removeItem(std::vector<Inventory*>& inventory, std::string Name, std::string filePath);
+void removeItem(std::string Name, std::string filePath);
 void addItem(std::vector<Inventory*>& inventory, std::string filepath);
+bool memberExists(std::string username, vector<User> users);
+void modifyRoleType(std::string username, vector<User>& users, roleType role);
+bool updateFile(vector<User> users);
+
 void printInventory(std::vector<Inventory*> inventory);
