@@ -1,9 +1,14 @@
 #pragma once
 
 #include <vector>
+#include <string>
+#include <iostream>
+
 #include "User.h"
 #include "Administrator.h"
 #include "FinalObjects.h"
+
+enum Type {cpu, gpu, apu};
 
 class Client : public User
 {
@@ -15,12 +20,17 @@ public:
 	Client(int ID, std::string username, std::string password, roleType role);
 
 	void setRole(roleType role);
-	void addItem(Inventory* i, std::vector<Inventory*> inventory);
+	void addItem(std::string fileName, std::string newFileName, std::string Name);
 	void removeItem(Inventory* i);
+
 	void printBasket(void);
 
 	int getNumberId(void);
 	std::string getUsername(void);
 	std::string getPassword(void);
 	roleType getRole(void);
+	void setBasket(std::vector<Inventory*> basket);
 };
+
+Type whichType(void);
+std::vector<Inventory*> ReadBasket(std::string filepath, std::string del);

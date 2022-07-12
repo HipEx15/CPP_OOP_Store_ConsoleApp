@@ -56,6 +56,8 @@ void ClientMenu(void)
 	std::cout << "\n 0 - Log out";
 	std::cout << "\n 1 - Add product to basket";
 	std::cout << "\n 2 - Remove product to basket";
+	std::cout << "\n 3 - Print basket";
+	std::cout << "\n 4 - Print inventory";
 	std::cout << "\n 9 - Exit";
 	cout << "\nOption: ";
 }
@@ -68,6 +70,7 @@ void AdminMenu(void)
 	std::cout << "\n 1 - Add product to inventory";
 	std::cout << "\n 2 - Remove product to inventory";
 	std::cout << "\n 3 - Add admin";
+	std::cout << "\n 4 - Print inventory";
 	std::cout << "\n 9 - Exit";
 	cout << "\nOption: ";
 }
@@ -148,7 +151,7 @@ vector<Inventory*> ReadInventory(string filepath, string del)
 				inventory.push_back(G);
 			}
 		}
-		else if (items[0] == "ALU")
+		else if (items[0] == "APU")
 		{
 			float weight = stof(items[1]);
 			float height = stof(items[2]);

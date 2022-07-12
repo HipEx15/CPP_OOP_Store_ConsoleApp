@@ -38,7 +38,8 @@ int main(void)
 	vector<string> userData;
 
 	int isValid;
-	roleType role;
+	roleType role = client;
+	User user;
 
 	do {
 		system("cls");
@@ -72,7 +73,10 @@ int main(void)
 					{
 						isValid = 1;
 						role = u.getRole();
-						break;
+						if (role == client)
+						{
+							user = u;
+						}
 					}
 				}
 
@@ -171,9 +175,44 @@ int main(void)
 					if (state == clientMenu) {
 						ClientMenu();
 						cin >> optionClient;
+						Client* CLIENT = (Client*)&user;
+						string name;
+						Type type;
 						switch (optionClient) {
 						case 0:
 							state = homescreen;
+							break;
+						case 1:
+						{
+							system("cls");
+							type = whichType();
+							cout << "\nName of product: ";
+							cin >> name;
+							cin.get();
+							//create output file
+							ofstream out("Basket" + user.getUsername() + ".txt", ios::app || ios::out);
+							CLIENT->addItem("Inventory.txt", "Basket" + user.getUsername() + ".txt", name);
+							out.close();
+							break;
+						}
+						case 3:
+						{
+							system("cls");
+							cout << "\nThe list of items in basket: \n";
+							CLIENT->printBasket();
+							cin.get();
+							cout << "\nPress enter to return to the menu.\n";
+							cin.get();
+							break;
+						}
+						case 4:
+							system("cls");
+							cout << "\nThe list of items in shop: \n";
+							for (auto i : inventory)
+								i->Print();
+							cin.get();
+							cout << "\nPress enter to return to the menu.\n";
+							cin.get();
 							break;
 						case 9:
 							flag = 1;
@@ -217,6 +256,16 @@ int main(void)
 								std::cout << "\nEnter client name to change his role: ";
 								cin >> clientRoletochange;
 								modifyRoleType(clientRoletochange, users, administrator);
+								break;
+							case 4:
+								system("cls");
+								cout << "\nThe list of items in shop: \n";
+								for (auto i : inventory)
+									i->Print();
+								cin.get();
+								cout << "\nPress enter to return to the menu.\n";
+								cin.get();
+								break;
 							default:
 								break;
 							}
